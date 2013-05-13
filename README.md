@@ -69,3 +69,11 @@ POST to / with the following request body:
 Will give the following image as response body:
 
 ![Example output](https://raw.github.com/vgnett/highcharts-png-renderer/master/example.png)
+
+# License
+MIT, see LICENSE
+
+# Credits
+Thrown together by Espen Hovlandsdal loosely based on the the official
+Highcharts rendering server
+
