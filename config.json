@@ -1,0 +1,8 @@
+{
+    "port": 11942,
+    "scripts": {
+        "jquery"         : "libs/jquery.min.js",
+        "highcharts"     : "libs/highcharts.js",
+        "highcharts-more": "libs/highcharts-more.js"
+    }
+}
