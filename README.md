@@ -11,7 +11,8 @@ Renders charts based on Highcharts through Phantom.js as PNG files
   JSON-options you would normally pass to the Highcharts constructor
 
 # Example:
-POST /
+POST to / with the following request body:
+
 ```JSON
 {
     "chart": {
@@ -64,5 +65,7 @@ POST /
     }]
 }
 ```
+
+Will give the following image as response body:
 
 ![Example output](https://raw.github.com/vgnett/highcharts-png-renderer/master/example.png)
