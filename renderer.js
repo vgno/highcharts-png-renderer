@@ -52,6 +52,8 @@
             this.response,
             decoded
         );
+
+        this.page.close();
     };
 
     Renderer.prototype.onPhantomCallback = function(msg) {
