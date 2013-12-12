@@ -74,6 +74,8 @@
         this.page.injectJs(this.config.scripts['highcharts-more']);
         this.page.injectJs('libs/bind-shim.js');
         this.page.injectJs('charter.js');
+        
+        this.page.zoomFactor = this.config.scale || 1;
 
         var createChart = function(options, id, cb) {
             var charter = new Charter();
