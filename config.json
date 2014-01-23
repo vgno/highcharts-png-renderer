@@ -4,5 +4,6 @@
         "jquery"         : "libs/jquery.min.js",
         "highcharts"     : "libs/highcharts.js",
         "highcharts-more": "libs/highcharts-more.js"
-    }
+    },
+    "scale": 2
 }
