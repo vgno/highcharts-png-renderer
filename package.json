@@ -1,0 +1,25 @@
+{
+  "name": "highcharts-png-renderer",
+  "version": "0.0.1",
+  "description": "Renders charts using Highcharts and PhantomJS",
+  "main": "run.js",
+  "scripts": {
+    "start": "phantomjs run.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vgnett/highcharts-png-renderer.git"
+  },
+  "keywords": [
+    "highcharts",
+    "charts",
+    "render",
+    "phantomjs"
+  ],
+  "author": "Espen Hovlandsdal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vgnett/highcharts-png-renderer/issues"
+  }
+}
