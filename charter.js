@@ -3,7 +3,7 @@
  */
 
 (function($, window) {
-    "use strict";
+    'use strict';
 
     var Charter = function() { this.init(); };
 
@@ -63,7 +63,7 @@
             var context = this, svg;
             this.chart = new Highcharts[this.constr](this.options, function() {
                 // Remove stroke-opacity paths, used by mouse-trackers,
-                // they turn up as as fully opaque in the PDF
+                // they turn up as as fully opaque in the PDF/PNG
                 var node, opacity;
                 $('*[stroke-opacity]').each(function() {
                     node = $(this);

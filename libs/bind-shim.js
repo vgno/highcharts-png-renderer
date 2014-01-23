@@ -3,7 +3,7 @@
  */
 
 (function() {
-    "use strict";
+    'use strict';
 
     // Really slim bind shim
     if (typeof Function.prototype.bind === 'undefined') {

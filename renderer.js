@@ -3,11 +3,11 @@
  */
 
 (function() {
-    "use strict";
+    'use strict';
 
-    var webpage  = require('webpage')
-      , base64   = require('./libs/base64.js')
-      , Renderer = function(options) { this.init(options); };
+    var webpage  = require('webpage'),
+        base64   = require('./libs/base64.js'),
+        Renderer = function(options) { this.init(options); };
 
     Renderer.prototype.init = function(options) {
         this.options = options;
@@ -39,12 +39,11 @@
     };
 
     Renderer.prototype.onRenderComplete = function() {
-        var data    = base64.decode(this.page.renderBase64('png'))
-          , decoded = ''
-          , j       = data.length
-          , i;
+        var data    = base64.decode(this.page.renderBase64('png')),
+            decoded = '',
+            j       = data.length;
 
-        for (i = 0; i < j; i++) {
+        for (var i = 0; i < j; i++) {
             decoded = decoded + String.fromCharCode(data[i]);
         }
 
@@ -69,12 +68,12 @@
     };
 
     Renderer.prototype.onPageReady = function() {
-        this.page.injectJs(this.config.scripts['jquery']);
-        this.page.injectJs(this.config.scripts['highcharts']);
+        this.page.injectJs(this.config.scripts.jquery);
+        this.page.injectJs(this.config.scripts.highcharts);
         this.page.injectJs(this.config.scripts['highcharts-more']);
         this.page.injectJs('libs/bind-shim.js');
         this.page.injectJs('charter.js');
-        
+
         this.page.zoomFactor = this.config.scale || 1;
 
         var createChart = function(options, id, cb) {
