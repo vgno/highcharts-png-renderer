@@ -1,6 +1,6 @@
 {
   "name": "highcharts-png-renderer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Renders charts using Highcharts and PhantomJS",
   "main": "run.js",
   "scripts": {

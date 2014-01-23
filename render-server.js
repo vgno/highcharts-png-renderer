@@ -37,12 +37,17 @@
     RenderServer.prototype.onPostRequest = function(request, response) {
         var data;
         try {
+            // Try to evaluate options as JSON
             data = JSON.parse(request.post);
         } catch (e) {
-            return this.onFail(response, 400, e + '');
+            if (!this.config.allowUnsafeEvaluation) {
+                // Fall back if we don't allow unsafe (non-JSON data)
+                return this.onFail(response, 400, e + '');
+            }
         }
 
-        var renderer = new Renderer(data);
+        var renderer = new Renderer(data || request.post);
+        renderer.allowUnsafeEvaluation(this.config.allowUnsafeEvaluation);
         renderer.setResponse(response);
         renderer.setOnRenderCallback(this.onRenderComplete.bind(this));
         renderer.setConfig(this.config);

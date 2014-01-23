@@ -14,4 +14,8 @@
 
     console.log('Listening on port ' + config.port);
 
+    if (config.allowUnsafeEvaluation) {
+        console.log('WARNING: Unsafe evaluation is turned ON!');
+    }
+
 })();

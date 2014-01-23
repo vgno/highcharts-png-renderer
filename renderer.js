@@ -14,6 +14,8 @@
         this.id      = Date.now() + (Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1));
         this.page    = webpage.create();
 
+        this.allowUnsafe = false;
+
         this.setOnRenderCallback(function() {});
 
         this.page.onCallback = this.onPhantomCallback.bind(this);
@@ -36,6 +38,10 @@
 
     Renderer.prototype.setOnRenderCallback = function(cb) {
         this.onRenderCompleteCallback = cb;
+    };
+
+    Renderer.prototype.allowUnsafeEvaluation = function(mod) {
+        this.allowUnsafe = !!mod;
     };
 
     Renderer.prototype.onRenderComplete = function() {
@@ -76,7 +82,16 @@
 
         this.page.zoomFactor = this.config.scale || 1;
 
-        var createChart = function(options, id, cb) {
+        var createChart = function(options, allowUnsafe, id, cb) {
+            if (allowUnsafe && typeof options === 'string') {
+                options = (function(js) {
+                    /* jshint evil: true */
+                    eval('var data = ' + js + ';');
+                    /* jshint evil: false */
+                    return data;
+                })(options);
+            }
+
             var charter = new Charter();
             charter.setId(id);
             charter.setOptions(options);
@@ -84,7 +99,12 @@
             var info = charter.render();
         };
 
-        this.page.evaluate(createChart, this.options, this.id);
+        this.page.evaluate(
+            createChart,
+            this.options,
+            this.allowUnsafeEvaluation,
+            this.id
+        );
     };
 
     Renderer.prototype.render = function() {
