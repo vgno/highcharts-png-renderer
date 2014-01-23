@@ -5,5 +5,5 @@
         "highcharts"     : "libs/highcharts.js",
         "highcharts-more": "libs/highcharts-more.js"
     },
-    "scale": 2
+    "scale": 1
 }
